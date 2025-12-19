@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Design Studio - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .custom-cursor {
+            position: fixed;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #a78bfa;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: left 0.05s, top 0.05s;
+        }
+        
+        @media (max-width: 768px) {
+            .custom-cursor {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
+    
+    <!-- Custom Cursor -->
+    <div id="customCursor" class="custom-cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-black/20 backdrop-blur-lg border-b border-white/10">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text cursor-pointer" onclick="showPage('home')">
+                    Design Studio
+                </div>
+                
+                <div class="hidden md:flex items-center gap-6">
+                    <button onclick="showPage('home')" class="hover:text-purple-400 transition-colors duration-200">
+                        Home
+                    </button>
+                    <a href="https://wa.me/94740925178" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200">
+                        <span class="text-2xl">📱</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/1F7kJvpMPk/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200">
+                        <span class="text-2xl font-bold">f</span>
+                    </a>
+                    <a href="https://www.instagram.com/shaminda_pradeep_18?igsh=NHh2ZXFkcWo3ZjNr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200">
+                        <span class="text-2xl">📷</span>
+                    </a>
+                </div>
+
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 flex-col gap-4">
+                <button onclick="showPage('home'); toggleMobileMenu();" class="text-left hover:text-purple-400 transition-colors duration-200">
+                    Home
+                </button>
+                <div class="flex gap-4">
+                    <a href="https://wa.me/94740925178" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                        <span class="text-2xl">📱</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/1F7kJvpMPk/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                        <span class="text-2xl font-bold">f</span>
+                    </a>
+                    <a href="https://www.instagram.com/shaminda_pradeep_18?igsh=NHh2ZXFkcWo3ZjNr" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center">
+                        <span class="text-2xl">📷</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page">
+        <div class="relative min-h-screen overflow-hidden">
+            <!-- Background Icons -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
+                <div class="absolute text-6xl animate-float" style="left: 0%; top: 0%; animation-delay: 0s;">🎨</div>
+                <div class="absolute text-6xl animate-float" style="left: 25%; top: 30%; animation-delay: 0.5s;">✨</div>
+                <div class="absolute text-6xl animate-float" style="left: 50%; top: 60%; animation-delay: 1s;">🎨</div>
+                <div class="absolute text-6xl animate-float" style="left: 75%; top: 90%; animation-delay: 1.5s;">✨</div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="relative z-10 container mx-auto px-6 pt-32 pb-20 text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+                    Creative Design Studio
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-12 font-light">
+                    Bringing Your Vision to Life
+                </p>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="relative z-10 container mx-auto px-6 pb-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
+                    Our Services
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="categoriesGrid">
+                    <!-- Categories will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Pricing Section -->
+            <div class="relative z-10 container mx-auto px-6 pb-20">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
+                    Pricing
+                </h2>
+                <div class="max-w-4xl mx-auto bg-gradient-to-br from-blue-900/50 to-purple-900/50 rounded-3xl p-8 backdrop-blur-lg">
+                    <div class="flex justify-between items-center py-6 border-b border-gray-700 hover:bg-white/5 transition-colors duration-200 px-6 rounded-lg">
+                        <span class="text-lg md:text-xl text-white font-medium">Social Media Post</span>
+                        <span class="text-lg md:text-xl text-purple-300 font-bold">Contact for pricing</span>
+                    </div>
+                    <div class="flex justify-between items-center py-6 border-b border-gray-700 hover:bg-white/5 transition-colors duration-200 px-6 rounded-lg">
+                        <span class="text-lg md:text-xl text-white font-medium">Logo Design</span>
+                        <span class="text-lg md:text-xl text-purple-300 font-bold">Contact for pricing</span>
+                    </div>
+                    <div class="flex justify-between items-center py-6 border-b border-gray-700 hover:bg-white/5 transition-colors duration-200 px-6 rounded-lg">
+                        <span class="text-lg md:text-xl text-white font-medium">Book Cover</span>
+                        <span class="text-lg md:text-xl text-purple-300 font-bold">Contact for pricing</span>
+                    </div>
+                    <div class="flex justify-between items-center py-6 border-b border-gray-700 hover:bg-white/5 transition-colors duration-200 px-6 rounded-lg">
+                        <span class="text-lg md:text-xl text-white font-medium">Poster Design</span>
+                        <span class="text-lg md:text-xl text-purple-300 font-bold">Contact for pricing</span>
+                    </div>
+                    <div class="flex justify-between items-center py-6 border-b border-gray-700 hover:bg-white/5 transition-colors duration-200 px-6 rounded-lg">
+                        <span class="text-lg md:text-xl text-white font-medium">Package Design</span>
+                        <span class="text-lg md:text-xl text-purple-300 font-bold">Contact for pricing</span>
+                    </div>
+                    <div class="flex justify-between items-center py-6 hover:bg-white/5 transition-colors duration-200 px-6 rounded-lg">
+                        <span class="text-lg md:text-xl text-white font-medium">Banner Design</span>
+                        <span class="text-lg md:text-xl text-purple-300 font-bold">Contact for pricing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Pages -->
+    <div id="categoryPage" class="page hidden">
+        <div class="relative min-h-screen">
+            <div class="container mx-auto px-6 pt-32 pb-20">
+                <button onclick="showPage('home')" class="mb-8 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-lg transition-shadow duration-200">
+                    ← Back to Home
+                </button>
+                
+                <h1 id="categoryTitle" class="text-4xl md:text-5xl font-bold mb-4 text-white"></h1>
+                <p id="categoryDescription" class="text-xl text-gray-400 mb-12"></p>
+
+                <div id="categoryImages" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Images will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-black/30 backdrop-blur-lg border-t border-white/10 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">
+                © 2024 Design Studio. All rights reserved.
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+                Contact: +94 74 092 5178
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Categories Data
+        const categories = [
+            { id: 'social', name: 'Social Media Posts', icon: '📱', driveLink: '' },
+            { id: 'logo', name: 'Logo Design', icon: '🎨', driveLink: '' },
+            { id: 'books', name: 'Book Covers', icon: '📚', driveLink: '' },
+            { id: 'posters', name: 'Poster Designs', icon: '🖼️', driveLink: '' },
+            { id: 'packages', name: 'Package Designs', icon: '📦', driveLink: '' },
+            { id: 'banners', name: 'Banners', icon: '🎯', driveLink: '' }
+        ];
+
+        // Sample Images
+        const sampleImages = {
+            social: [
+                'https://via.placeholder.com/400x400/667eea/ffffff?text=Social+Post+1',
+                'https://via.placeholder.com/400x400/764ba2/ffffff?text=Social+Post+2',
+                'https://via.placeholder.com/400x400/667eea/ffffff?text=Social+Post+3'
+            ],
+            logo: [
+                'https://via.placeholder.com/400x400/667eea/ffffff?text=Logo+1',
+                'https://via.placeholder.com/400x400/764ba2/ffffff?text=Logo+2',
+                'https://via.placeholder.com/400x400/667eea/ffffff?text=Logo+3'
+            ],
+            books: [
+                'https://via.placeholder.com/400x600/667eea/ffffff?text=Book+Cover+1',
+                'https://via.placeholder.com/400x600/764ba2/ffffff?text=Book+Cover+2',
+                'https://via.placeholder.com/400x600/667eea/ffffff?text=Book+Cover+3'
+            ],
+            posters: [
+                'https://via.placeholder.com/400x600/667eea/ffffff?text=Poster+1',
+                'https://via.placeholder.com/400x600/764ba2/ffffff?text=Poster+2',
+                'https://via.placeholder.com/400x600/667eea/ffffff?text=Poster+3'
+            ],
+            packages: [
+                'https://via.placeholder.com/400x400/667eea/ffffff?text=Package+1',
+                'https://via.placeholder.com/400x400/764ba2/ffffff?text=Package+2',
+                'https://via.placeholder.com/400x400/667eea/ffffff?text=Package+3'
+            ],
+            banners: [
+                'https://via.placeholder.com/800x300/667eea/ffffff?text=Banner+1',
+                'https://via.placeholder.com/800x300/764ba2/ffffff?text=Banner+2',
+                'https://via.placeholder.com/800x300/667eea/ffffff?text=Banner+3'
+            ]
+        };
+
+        // Custom Cursor
+        const cursor = document.getElementById('customCursor');
+        let rafId;
+        
+        document.addEventListener('mousemove', (e) => {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        });
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            const closeIcon = document.getElementById('closeIcon');
+            
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        // Show Page
+        function showPage(pageId) {
+            document.getElementById('homePage').classList.add('hidden');
+            document.getElementById('categoryPage').classList.add('hidden');
+            
+            if (pageId === 'home') {
+                document.getElementById('homePage').classList.remove('hidden');
+            } else {
+                showCategoryPage(pageId);
+                document.getElementById('categoryPage').classList.remove('hidden');
+            }
+            
+            window.scrollTo(0, 0);
+        }
+
+        // Show Category Page
+        function showCategoryPage(categoryId) {
+            const category = categories.find(c => c.id === categoryId);
+            const images = sampleImages[categoryId] || [];
+            
+            document.getElementById('categoryTitle').textContent = category.name;
+            
+            const description = category.driveLink 
+                ? `<a href="${category.driveLink}" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300">View Full Collection →</a>`
+                : 'Add your Google Drive link to display your work';
+            document.getElementById('categoryDescription').innerHTML = description;
+            
+            const imagesContainer = document.getElementById('categoryImages');
+            imagesContainer.innerHTML = '';
+            
+            if (images.length === 0) {
+                imagesContainer.innerHTML = `
+                    <div class="col-span-full text-center py-20">
+                        <p class="text-2xl text-gray-400">Add your Google Drive link to the category to display your work here</p>
+                    </div>
+                `;
+            } else {
+                images.forEach((img, index) => {
+                    const imageCard = document.createElement('div');
+                    imageCard.className = 'relative group';
+                    imageCard.innerHTML = `
+                        <div class="relative overflow-hidden rounded-2xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                            <img src="${img}" alt="${category.name} ${index + 1}" class="w-full h-auto transition-all duration-300 group-hover:scale-110 group-hover:brightness-75">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                            <button onclick="downloadImage('${img}', '${category.name}-${index + 1}.jpg')" class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white text-gray-900 px-6 py-3 rounded-full font-semibold flex items-center gap-2 opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                                Download
+                            </button>
+                        </div>
+                    `;
+                    imagesContainer.appendChild(imageCard);
+                });
+            }
+        }
+
+        // Download Image
+        function downloadImage(url, filename) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+        }
+
+        // Initialize Categories Grid
+        function initCategories() {
+            const grid = document.getElementById('categoriesGrid');
+            categories.forEach(category => {
+                const card = document.createElement('div');
+                card.className = 'relative group cursor-pointer';
+                card.onclick = () => showPage(category.id);
+                card.innerHTML = `
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 p-8 h-64 transition-transform duration-300 group-hover:scale-105 group-hover:shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="relative z-10">
+                            <div class="text-6xl mb-4 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
+                                ${category.icon}
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">
+                                ${category.name}
+                            </h3>
+                            <p class="text-blue-100 text-sm">
+                                View Portfolio →
+                            </p>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Initialize on load
+        initCategories();
+    </script>
+</body>
+</html>
